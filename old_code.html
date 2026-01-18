@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajendra Kishan - AI Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: #60a5fa;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%2360a5fa" stop-opacity="0.1"/><stop offset="100%" stop-color="%2360a5fa" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/><circle cx="700" cy="800" r="80" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #94a3b8;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #60a5fa;
+            color: #60a5fa;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #60a5fa;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-item h3 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .experience-item .company {
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .duration {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #f8fafc;
+            overflow: hidden;
+        }
+
+        .projects-container {
+            position: relative;
+        }
+
+        .projects-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
+            transition: transform 0.5s ease;
+            width: max-content;
+        }
+
+        .projects-scroll-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(96, 165, 250, 0.9);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+        }
+
+        .scroll-btn:hover {
+            background: #3b82f6;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-btn.left {
+            left: 10px;
+        }
+
+        .scroll-btn.right {
+            right: 10px;
+        }
+
+        .scroll-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            min-width: 350px;
+            max-width: 350px;
+            flex-shrink: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .project-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link.primary {
+            background: #60a5fa;
+            color: white;
+        }
+
+        .project-link.secondary {
+            border: 2px solid #60a5fa;
+            color: #60a5fa;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: #60a5fa;
+            width: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(96, 165, 250, 0.1);
+            border: 2px solid #60a5fa;
+            border-radius: 50%;
+            color: #60a5fa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #60a5fa;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">RK</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Rajendra Kishan</h1>
+            <p class="subtitle">AI & Machine Learning Engineer</p>
+            <p class="description">
+                Passionate about building intelligent systems that solve real-world problems. 
+                Specializing in Deep Learning, Natural Language Processing, Generative AI, and Computer Vision 
+                with a focus on scalable AI solutions.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> View My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <div class="profile-img">
+                        <img src="kishan.png" alt="A descriptive text for the image"/>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Building the Future with AI</h3>
+                    <p>
+                        As an AI Engineer, I'm passionate about creating intelligent systems 
+                        that make a meaningful impact. With a strong foundation in Machine Learning, 
+                        Deep Learning, Generative AI, and software engineering, I bridge the gap between cutting-edge 
+                        research and practical applications.
+                    </p>
+                    <p>
+                        My expertise spans across various domains including Natural Language Processing, 
+                        Computer Vision, and Predictive Analytics. I believe in writing clean, 
+                        maintainable code and building scalable AI solutions that can handle 
+                        real-world challenges.
+                    </p>
+                    <div class="skills">
+                        <span class="skill-tag">LLM</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">GANs</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">MLOps</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Experience</h2>
+            <div class="experience-grid fade-in">
+                <div class="experience-item">
+                    <h3>Software Engineer</h3>
+                    <div class="company">Unsung Fields Corp</div>
+                    <div class="duration">2025 Jan - Present</div>
+                    <p>
+                        Leading AI initiatives and developing machine learning models for enterprise clients. 
+                        Responsible for architecting scalable ML pipelines and mentoring junior engineers. 
+                        Successfully deployed 15+ production models improving business efficiency by 40%.
+                    </p>
+                </div>
+            <div class="experience-grid fade-in">
+                <div class="experience-item">
+                    <h3>Engineer - System Support</h3>
+                    <div class="company">Millennium IT Esp</div>
+                    <div class="duration">2024 Jan - 2025 Jan</div>
+                    <p>
+                        Leading AI initiatives and developing machine learning models for enterprise clients. 
+                        Responsible for architecting scalable ML pipelines and mentoring junior engineers. 
+                        Successfully deployed 15+ production models improving business efficiency by 40%.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <h3>MAS Executive</h3>
+                    <div class="company">Bhartia Airtel Pvt. Ltd</div>
+                    <div class="duration">2023 Mar - 2023 Jun</div>
+                    <p>
+                        Handled SQL Server and Microsoft Excel to create Transactional Analysis Report for day-to-day decisions of the Company.
+                        Integrated pipelines to Extract and Transform data to create the reports. Also, created some automations using Python to
+                        load data to the SQL Server databases.
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <h3>Intern - Data Engineer</h3>
+                    <div class="company">Kaayaltek Solutions Pvt. Ltd</div>
+                    <div class="duration">2022 Jul - 2022 Dec</div>
+                    <p>
+                        Contributed to research projects in Data Engineering and Data Migration using SQL Server and Microsoft Power Platform.
+                        Handled SQL short procedures and excel functions for Data formatting and transforming before Data Migration and Created
+                        pipelines to load the data to Data Warehouse.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-container fade-in">
+                <div class="projects-scroll-wrapper">
+                    <button class="scroll-btn left" onclick="scrollProjects('left')">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn right" onclick="scrollProjects('right')">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="projects-grid" id="projectsGrid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>AI Chatbot Platform</h3>
+                                <p>
+                                    Developed an intelligent conversational AI platform using transformer models and 
+                                    natural language understanding. Handles 10,000+ conversations daily with 95% accuracy.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Transformers</span>
+                                    <span class="project-tag">FastAPI</span>
+                                    <span class="project-tag">PostgreSQL</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Live Demo</a>
+                                    <a href="#" class="project-link secondary">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Computer Vision Analytics</h3>
+                                <p>
+                                    Built a real-time object detection and tracking system for retail analytics. 
+                                    Provides insights on customer behavior and inventory management with 92% accuracy.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">OpenCV</span>
+                                    <span class="project-tag">YOLO</span>
+                                    <span class="project-tag">TensorFlow</span>
+                                    <span class="project-tag">Redis</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">View Project</a>
+                                    <a href="#" class="project-link secondary">Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Predictive Analytics Engine</h3>
+                                <p>
+                                    Created a machine learning pipeline for financial forecasting and risk assessment. 
+                                    Processes market data in real-time and provides actionable investment insights.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Scikit-learn</span>
+                                    <span class="project-tag">Pandas</span>
+                                    <span class="project-tag">AWS</span>
+                                    <span class="project-tag">Docker</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Demo</a>
+                                    <a href="#" class="project-link secondary">Repository</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Autonomous Decision System</h3>
+                                <p>
+                                    Implemented a reinforcement learning agent for autonomous vehicle navigation. 
+                                    Uses deep Q-networks and achieved 98% success rate in simulation environments.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">PyTorch</span>
+                                    <span class="project-tag">OpenAI Gym</span>
+                                    <span class="project-tag">ROS</span>
+                                    <span class="project-tag">CUDA</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Simulation</a>
+                                    <a href="#" class="project-link secondary">Source</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Multilingual NLP Pipeline</h3>
+                                <p>
+                                    Built a comprehensive text processing system supporting 15+ languages. 
+                                    Includes sentiment analysis, entity recognition, and document classification.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">spaCy</span>
+                                    <span class="project-tag">BERT</span>
+                                    <span class="project-tag">Elasticsearch</span>
+                                    <span class="project-tag">Kubernetes</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Try API</a>
+                                    <a href="#" class="project-link secondary">Docs</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>Medical AI Diagnosis</h3>
+                                <p>
+                                    Developed a deep learning model for medical image analysis and disease detection. 
+                                    Achieved 94% accuracy on chest X-ray classification with FDA-compliant pipeline.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">TensorFlow</span>
+                                    <span class="project-tag">Keras</span>
+                                    <span class="project-tag">DICOM</span>
+                                    <span class="project-tag">Flask</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Research</a>
+                                    <a href="#" class="project-link secondary">Model</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>AI Game Agent</h3>
+                                <p>
+                                    Created an intelligent game-playing agent using Monte Carlo Tree Search and neural networks. 
+                                    Defeated human players in complex strategy games with 85% win rate.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Alpha Zero</span>
+                                    <span class="project-tag">MCTS</span>
+                                    <span class="project-tag">PyGame</span>
+                                    <span class="project-tag">JAX</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Play Game</a>
+                                    <a href="#" class="project-link secondary">Algorithm</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3>MLOps Pipeline Platform</h3>
+                                <p>
+                                    Built an end-to-end machine learning operations platform with automated model training, 
+                                    deployment, and monitoring. Reduced deployment time from days to minutes.
+                                </p>
+                                <div class="project-tags">
+                                    <span class="project-tag">MLflow</span>
+                                    <span class="project-tag">Airflow</span>
+                                    <span class="project-tag">Terraform</span>
+                                    <span class="project-tag">Grafana</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link primary">Dashboard</a>
+                                    <a href="#" class="project-link secondary">Setup</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title fade-in" style="color: white;">Get In Touch</h2>
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <h3>Let's Build Something Amazing Together</h3>
+                    <p>
+                        I'm always interested in discussing new opportunities, innovative projects, 
+                        or just chatting about the latest in AI and machine learning.
+                    </p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>kishansteve@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+94 70 638 6347</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kanagawa, Yokohama, Japan</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/rajendra-kishan-1159071a5/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/kishan20-00" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://medium.com/@kishansteve" class="social-link"><i class="fas fa-blog"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project Discussion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rajendra Kishan. All rights reserved. Built with passion for AI and innovation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Projects scrolling functionality
+        let currentScrollPosition = 0;
+        const scrollAmount = 370; // Card width + gap
+        
+        function scrollProjects(direction) {
+            const projectsGrid = document.getElementById('projectsGrid');
+            const maxScroll = projectsGrid.scrollWidth - projectsGrid.parentElement.clientWidth;
+            
+            if (direction === 'right') {
+                currentScrollPosition = Math.min(currentScrollPosition + scrollAmount, maxScroll);
+            } else {
+                currentScrollPosition = Math.max(currentScrollPosition - scrollAmount, 0);
+            }
+            
+            projectsGrid.style.transform = `translateX(-${currentScrollPosition}px)`;
+            
+            // Update button states
+            updateScrollButtons();
+        }
+        
+        function updateScrollButtons() {
+            const leftBtn = document.querySelector('.scroll-btn.left');
+            const rightBtn = document.querySelector('.scroll-btn.right');
+            const projectsGrid = document.getElementById('projectsGrid');
+            const maxScroll = projectsGrid.scrollWidth - projectsGrid.parentElement.clientWidth;
+            
+            leftBtn.disabled = currentScrollPosition <= 0;
+            rightBtn.disabled = currentScrollPosition >= maxScroll;
+        }
+        
+        // Auto-scroll projects (optional)
+        let autoScrollInterval;
+        
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                const projectsGrid = document.getElementById('projectsGrid');
+                const maxScroll = projectsGrid.scrollWidth - projectsGrid.parentElement.clientWidth;
+                
+                if (currentScrollPosition >= maxScroll) {
+                    currentScrollPosition = 0;
+                } else {
+                    currentScrollPosition += scrollAmount;
+                }
+                
+                projectsGrid.style.transform = `translateX(-${currentScrollPosition}px)`;
+                updateScrollButtons();
+            }, 4000);
+        }
+        
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+        }
+        
+        // Initialize projects section
+        document.addEventListener('DOMContentLoaded', function() {
+            updateScrollButtons();
+            
+            // Add hover events to stop/start auto-scroll
+            const projectsSection = document.getElementById('projects');
+            projectsSection.addEventListener('mouseenter', stopAutoScroll);
+            projectsSection.addEventListener('mouseleave', startAutoScroll);
+            
+            // Start auto-scroll after page load
+            setTimeout(startAutoScroll, 3000);
+        });
+    </script>
+</body>
+</html>
