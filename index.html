@@ -364,6 +364,7 @@
                 <div id="terminal-window" class="p-8 font-mono text-sm h-[400px] overflow-y-auto">
                     <div class="text-slate-500 mb-4">Initializing outbound communication channel...</div>
                     <div class="text-emerald-500 mb-2">System: Channel established. Waiting for input.</div>
+                    <div class="text-slate-400 mb-2">Tip: Fastest secure channel &rarr; Signal <span class="text-emerald-400">@Rajendra.09</span> &middot; type <span class="text-emerald-400">'signal'</span> for details.</div>
                     
                     <div id="chat-history" class="space-y-2"></div>
                     
@@ -447,7 +448,7 @@
                 
                 const cmd = val.toLowerCase();
                 if (cmd === 'help') {
-                    response.innerHTML = `Available commands: <br> - send [email] : Log your contact info<br> - clear : Flush buffer<br> - status : System health check<br> - social : Display social nodes`;
+                    response.innerHTML = `Available commands: <br> - signal : Open secure chat channel<br> - send [email] : Log your contact info<br> - clear : Flush buffer<br> - status : System health check<br> - social : Display social nodes`;
                 } else if (cmd.startsWith('send ')) {
                     // Logic for real contact goes here (e.g., fetch API call)
                     response.innerHTML = `<span class="text-emerald-400">Success:</span> Signal received from ${val.split(' ')[1]}. Communication logged.`;
@@ -457,7 +458,11 @@
                 } else if (cmd === 'status') {
                     response.innerHTML = 'All systems nominal. Neural engines online. Mood: Highly Caffeinated.';
                 } else if (cmd === 'social') {
-                    response.innerHTML = 'LinkedIn: /in/rajendra-kishan-1159071a5/ <br> GitHub: /kishan20-00';
+                    response.innerHTML = 'Signal: @Rajendra.09 (preferred) <br> LinkedIn: /in/rajendra-kishan-1159071a5/ <br> GitHub: /kishan20-00';
+                } else if (cmd === 'signal') {
+                    // To make this one-click: in the Signal app, open your username > Share > Copy link
+                    // (it looks like https://signal.me/#eu/...), then wrap "Rajendra.09" below in an <a href="...">.
+                    response.innerHTML = `<span class="text-emerald-400">Secure channel online.</span> Signal username: <span class="text-white">Rajendra.09</span><br>&rarr; In Signal: New Chat &gt; "Find by username" &gt; enter <span class="text-white">Rajendra.09</span><br><span class="text-slate-500">Spam-resistant &middot; end-to-end encrypted &middot; no phone number needed.</span>`;
                 } else {
                     response.innerHTML = `Command not found: ${val}. Type 'help' for available procedures.`;
                 }
